@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -47,11 +46,11 @@ instance encodeAllowedOrigins :: Encode AllowedOrigins where encode = genericEnc
 
 -- | <p>This section describes operations that you can perform on an AWS Elemental MediaStore container.</p>
 newtype Container = Container 
-  { "Endpoint" :: NullOrUndefined (Endpoint)
-  , "CreationTime" :: NullOrUndefined (TimeStamp)
-  , "ARN" :: NullOrUndefined (ContainerARN)
-  , "Name" :: NullOrUndefined (ContainerName)
-  , "Status" :: NullOrUndefined (ContainerStatus)
+  { "Endpoint" :: Maybe (Endpoint)
+  , "CreationTime" :: Maybe (TimeStamp)
+  , "ARN" :: Maybe (ContainerARN)
+  , "Name" :: Maybe (ContainerName)
+  , "Status" :: Maybe (ContainerStatus)
   }
 derive instance newtypeContainer :: Newtype Container _
 derive instance repGenericContainer :: Generic Container _
@@ -61,12 +60,12 @@ instance encodeContainer :: Encode Container where encode = genericEncode option
 
 -- | Constructs Container from required parameters
 newContainer :: Container
-newContainer  = Container { "ARN": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Endpoint": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newContainer  = Container { "ARN": Nothing, "CreationTime": Nothing, "Endpoint": Nothing, "Name": Nothing, "Status": Nothing }
 
 -- | Constructs Container's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainer' :: ( { "Endpoint" :: NullOrUndefined (Endpoint) , "CreationTime" :: NullOrUndefined (TimeStamp) , "ARN" :: NullOrUndefined (ContainerARN) , "Name" :: NullOrUndefined (ContainerName) , "Status" :: NullOrUndefined (ContainerStatus) } -> {"Endpoint" :: NullOrUndefined (Endpoint) , "CreationTime" :: NullOrUndefined (TimeStamp) , "ARN" :: NullOrUndefined (ContainerARN) , "Name" :: NullOrUndefined (ContainerName) , "Status" :: NullOrUndefined (ContainerStatus) } ) -> Container
-newContainer'  customize = (Container <<< customize) { "ARN": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Endpoint": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newContainer' :: ( { "Endpoint" :: Maybe (Endpoint) , "CreationTime" :: Maybe (TimeStamp) , "ARN" :: Maybe (ContainerARN) , "Name" :: Maybe (ContainerName) , "Status" :: Maybe (ContainerStatus) } -> {"Endpoint" :: Maybe (Endpoint) , "CreationTime" :: Maybe (TimeStamp) , "ARN" :: Maybe (ContainerARN) , "Name" :: Maybe (ContainerName) , "Status" :: Maybe (ContainerStatus) } ) -> Container
+newContainer'  customize = (Container <<< customize) { "ARN": Nothing, "CreationTime": Nothing, "Endpoint": Nothing, "Name": Nothing, "Status": Nothing }
 
 
 
@@ -81,7 +80,7 @@ instance encodeContainerARN :: Encode ContainerARN where encode = genericEncode 
 
 -- | <p>Resource already exists or is being updated.</p>
 newtype ContainerInUseException = ContainerInUseException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeContainerInUseException :: Newtype ContainerInUseException _
 derive instance repGenericContainerInUseException :: Generic ContainerInUseException _
@@ -91,12 +90,12 @@ instance encodeContainerInUseException :: Encode ContainerInUseException where e
 
 -- | Constructs ContainerInUseException from required parameters
 newContainerInUseException :: ContainerInUseException
-newContainerInUseException  = ContainerInUseException { "Message": (NullOrUndefined Nothing) }
+newContainerInUseException  = ContainerInUseException { "Message": Nothing }
 
 -- | Constructs ContainerInUseException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainerInUseException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ContainerInUseException
-newContainerInUseException'  customize = (ContainerInUseException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newContainerInUseException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ContainerInUseException
+newContainerInUseException'  customize = (ContainerInUseException <<< customize) { "Message": Nothing }
 
 
 
@@ -129,7 +128,7 @@ instance encodeContainerName :: Encode ContainerName where encode = genericEncod
 
 -- | <p>Could not perform an operation on a container that does not exist.</p>
 newtype ContainerNotFoundException = ContainerNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeContainerNotFoundException :: Newtype ContainerNotFoundException _
 derive instance repGenericContainerNotFoundException :: Generic ContainerNotFoundException _
@@ -139,12 +138,12 @@ instance encodeContainerNotFoundException :: Encode ContainerNotFoundException w
 
 -- | Constructs ContainerNotFoundException from required parameters
 newContainerNotFoundException :: ContainerNotFoundException
-newContainerNotFoundException  = ContainerNotFoundException { "Message": (NullOrUndefined Nothing) }
+newContainerNotFoundException  = ContainerNotFoundException { "Message": Nothing }
 
 -- | Constructs ContainerNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainerNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ContainerNotFoundException
-newContainerNotFoundException'  customize = (ContainerNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newContainerNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ContainerNotFoundException
+newContainerNotFoundException'  customize = (ContainerNotFoundException <<< customize) { "Message": Nothing }
 
 
 
@@ -178,7 +177,7 @@ instance encodeCorsPolicy :: Encode CorsPolicy where encode = genericEncode opti
 
 -- | <p>Could not perform an operation on a policy that does not exist.</p>
 newtype CorsPolicyNotFoundException = CorsPolicyNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeCorsPolicyNotFoundException :: Newtype CorsPolicyNotFoundException _
 derive instance repGenericCorsPolicyNotFoundException :: Generic CorsPolicyNotFoundException _
@@ -188,22 +187,22 @@ instance encodeCorsPolicyNotFoundException :: Encode CorsPolicyNotFoundException
 
 -- | Constructs CorsPolicyNotFoundException from required parameters
 newCorsPolicyNotFoundException :: CorsPolicyNotFoundException
-newCorsPolicyNotFoundException  = CorsPolicyNotFoundException { "Message": (NullOrUndefined Nothing) }
+newCorsPolicyNotFoundException  = CorsPolicyNotFoundException { "Message": Nothing }
 
 -- | Constructs CorsPolicyNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCorsPolicyNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> CorsPolicyNotFoundException
-newCorsPolicyNotFoundException'  customize = (CorsPolicyNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newCorsPolicyNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> CorsPolicyNotFoundException
+newCorsPolicyNotFoundException'  customize = (CorsPolicyNotFoundException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A rule for a CORS policy. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.</p>
 newtype CorsRule = CorsRule 
-  { "AllowedOrigins" :: NullOrUndefined (AllowedOrigins)
-  , "AllowedMethods" :: NullOrUndefined (AllowedMethods)
-  , "AllowedHeaders" :: NullOrUndefined (AllowedHeaders)
-  , "MaxAgeSeconds" :: NullOrUndefined (MaxAgeSeconds)
-  , "ExposeHeaders" :: NullOrUndefined (ExposeHeaders)
+  { "AllowedOrigins" :: Maybe (AllowedOrigins)
+  , "AllowedMethods" :: Maybe (AllowedMethods)
+  , "AllowedHeaders" :: Maybe (AllowedHeaders)
+  , "MaxAgeSeconds" :: Maybe (MaxAgeSeconds)
+  , "ExposeHeaders" :: Maybe (ExposeHeaders)
   }
 derive instance newtypeCorsRule :: Newtype CorsRule _
 derive instance repGenericCorsRule :: Generic CorsRule _
@@ -213,12 +212,12 @@ instance encodeCorsRule :: Encode CorsRule where encode = genericEncode options
 
 -- | Constructs CorsRule from required parameters
 newCorsRule :: CorsRule
-newCorsRule  = CorsRule { "AllowedHeaders": (NullOrUndefined Nothing), "AllowedMethods": (NullOrUndefined Nothing), "AllowedOrigins": (NullOrUndefined Nothing), "ExposeHeaders": (NullOrUndefined Nothing), "MaxAgeSeconds": (NullOrUndefined Nothing) }
+newCorsRule  = CorsRule { "AllowedHeaders": Nothing, "AllowedMethods": Nothing, "AllowedOrigins": Nothing, "ExposeHeaders": Nothing, "MaxAgeSeconds": Nothing }
 
 -- | Constructs CorsRule's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCorsRule' :: ( { "AllowedOrigins" :: NullOrUndefined (AllowedOrigins) , "AllowedMethods" :: NullOrUndefined (AllowedMethods) , "AllowedHeaders" :: NullOrUndefined (AllowedHeaders) , "MaxAgeSeconds" :: NullOrUndefined (MaxAgeSeconds) , "ExposeHeaders" :: NullOrUndefined (ExposeHeaders) } -> {"AllowedOrigins" :: NullOrUndefined (AllowedOrigins) , "AllowedMethods" :: NullOrUndefined (AllowedMethods) , "AllowedHeaders" :: NullOrUndefined (AllowedHeaders) , "MaxAgeSeconds" :: NullOrUndefined (MaxAgeSeconds) , "ExposeHeaders" :: NullOrUndefined (ExposeHeaders) } ) -> CorsRule
-newCorsRule'  customize = (CorsRule <<< customize) { "AllowedHeaders": (NullOrUndefined Nothing), "AllowedMethods": (NullOrUndefined Nothing), "AllowedOrigins": (NullOrUndefined Nothing), "ExposeHeaders": (NullOrUndefined Nothing), "MaxAgeSeconds": (NullOrUndefined Nothing) }
+newCorsRule' :: ( { "AllowedOrigins" :: Maybe (AllowedOrigins) , "AllowedMethods" :: Maybe (AllowedMethods) , "AllowedHeaders" :: Maybe (AllowedHeaders) , "MaxAgeSeconds" :: Maybe (MaxAgeSeconds) , "ExposeHeaders" :: Maybe (ExposeHeaders) } -> {"AllowedOrigins" :: Maybe (AllowedOrigins) , "AllowedMethods" :: Maybe (AllowedMethods) , "AllowedHeaders" :: Maybe (AllowedHeaders) , "MaxAgeSeconds" :: Maybe (MaxAgeSeconds) , "ExposeHeaders" :: Maybe (ExposeHeaders) } ) -> CorsRule
+newCorsRule'  customize = (CorsRule <<< customize) { "AllowedHeaders": Nothing, "AllowedMethods": Nothing, "AllowedOrigins": Nothing, "ExposeHeaders": Nothing, "MaxAgeSeconds": Nothing }
 
 
 
@@ -350,7 +349,7 @@ instance encodeDeleteCorsPolicyOutput :: Encode DeleteCorsPolicyOutput where enc
 
 
 newtype DescribeContainerInput = DescribeContainerInput 
-  { "ContainerName" :: NullOrUndefined (ContainerName)
+  { "ContainerName" :: Maybe (ContainerName)
   }
 derive instance newtypeDescribeContainerInput :: Newtype DescribeContainerInput _
 derive instance repGenericDescribeContainerInput :: Generic DescribeContainerInput _
@@ -360,17 +359,17 @@ instance encodeDescribeContainerInput :: Encode DescribeContainerInput where enc
 
 -- | Constructs DescribeContainerInput from required parameters
 newDescribeContainerInput :: DescribeContainerInput
-newDescribeContainerInput  = DescribeContainerInput { "ContainerName": (NullOrUndefined Nothing) }
+newDescribeContainerInput  = DescribeContainerInput { "ContainerName": Nothing }
 
 -- | Constructs DescribeContainerInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeContainerInput' :: ( { "ContainerName" :: NullOrUndefined (ContainerName) } -> {"ContainerName" :: NullOrUndefined (ContainerName) } ) -> DescribeContainerInput
-newDescribeContainerInput'  customize = (DescribeContainerInput <<< customize) { "ContainerName": (NullOrUndefined Nothing) }
+newDescribeContainerInput' :: ( { "ContainerName" :: Maybe (ContainerName) } -> {"ContainerName" :: Maybe (ContainerName) } ) -> DescribeContainerInput
+newDescribeContainerInput'  customize = (DescribeContainerInput <<< customize) { "ContainerName": Nothing }
 
 
 
 newtype DescribeContainerOutput = DescribeContainerOutput 
-  { "Container" :: NullOrUndefined (Container)
+  { "Container" :: Maybe (Container)
   }
 derive instance newtypeDescribeContainerOutput :: Newtype DescribeContainerOutput _
 derive instance repGenericDescribeContainerOutput :: Generic DescribeContainerOutput _
@@ -380,12 +379,12 @@ instance encodeDescribeContainerOutput :: Encode DescribeContainerOutput where e
 
 -- | Constructs DescribeContainerOutput from required parameters
 newDescribeContainerOutput :: DescribeContainerOutput
-newDescribeContainerOutput  = DescribeContainerOutput { "Container": (NullOrUndefined Nothing) }
+newDescribeContainerOutput  = DescribeContainerOutput { "Container": Nothing }
 
 -- | Constructs DescribeContainerOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeContainerOutput' :: ( { "Container" :: NullOrUndefined (Container) } -> {"Container" :: NullOrUndefined (Container) } ) -> DescribeContainerOutput
-newDescribeContainerOutput'  customize = (DescribeContainerOutput <<< customize) { "Container": (NullOrUndefined Nothing) }
+newDescribeContainerOutput' :: ( { "Container" :: Maybe (Container) } -> {"Container" :: Maybe (Container) } ) -> DescribeContainerOutput
+newDescribeContainerOutput'  customize = (DescribeContainerOutput <<< customize) { "Container": Nothing }
 
 
 
@@ -507,7 +506,7 @@ instance encodeHeader :: Encode Header where encode = genericEncode options
 
 -- | <p>The service is temporarily unavailable.</p>
 newtype InternalServerError = InternalServerError 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInternalServerError :: Newtype InternalServerError _
 derive instance repGenericInternalServerError :: Generic InternalServerError _
@@ -517,18 +516,18 @@ instance encodeInternalServerError :: Encode InternalServerError where encode = 
 
 -- | Constructs InternalServerError from required parameters
 newInternalServerError :: InternalServerError
-newInternalServerError  = InternalServerError { "Message": (NullOrUndefined Nothing) }
+newInternalServerError  = InternalServerError { "Message": Nothing }
 
 -- | Constructs InternalServerError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServerError' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InternalServerError
-newInternalServerError'  customize = (InternalServerError <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalServerError' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InternalServerError
+newInternalServerError'  customize = (InternalServerError <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A service limit has been exceeded.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -538,18 +537,18 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "Message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": Nothing }
 
 
 
 newtype ListContainersInput = ListContainersInput 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ContainerListLimit)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ContainerListLimit)
   }
 derive instance newtypeListContainersInput :: Newtype ListContainersInput _
 derive instance repGenericListContainersInput :: Generic ListContainersInput _
@@ -559,18 +558,18 @@ instance encodeListContainersInput :: Encode ListContainersInput where encode = 
 
 -- | Constructs ListContainersInput from required parameters
 newListContainersInput :: ListContainersInput
-newListContainersInput  = ListContainersInput { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListContainersInput  = ListContainersInput { "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListContainersInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListContainersInput' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ContainerListLimit) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ContainerListLimit) } ) -> ListContainersInput
-newListContainersInput'  customize = (ListContainersInput <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListContainersInput' :: ( { "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ContainerListLimit) } -> {"NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ContainerListLimit) } ) -> ListContainersInput
+newListContainersInput'  customize = (ListContainersInput <<< customize) { "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListContainersOutput = ListContainersOutput 
   { "Containers" :: (ContainerList)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListContainersOutput :: Newtype ListContainersOutput _
 derive instance repGenericListContainersOutput :: Generic ListContainersOutput _
@@ -580,12 +579,12 @@ instance encodeListContainersOutput :: Encode ListContainersOutput where encode 
 
 -- | Constructs ListContainersOutput from required parameters
 newListContainersOutput :: ContainerList -> ListContainersOutput
-newListContainersOutput _Containers = ListContainersOutput { "Containers": _Containers, "NextToken": (NullOrUndefined Nothing) }
+newListContainersOutput _Containers = ListContainersOutput { "Containers": _Containers, "NextToken": Nothing }
 
 -- | Constructs ListContainersOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListContainersOutput' :: ContainerList -> ( { "Containers" :: (ContainerList) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"Containers" :: (ContainerList) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> ListContainersOutput
-newListContainersOutput' _Containers customize = (ListContainersOutput <<< customize) { "Containers": _Containers, "NextToken": (NullOrUndefined Nothing) }
+newListContainersOutput' :: ContainerList -> ( { "Containers" :: (ContainerList) , "NextToken" :: Maybe (PaginationToken) } -> {"Containers" :: (ContainerList) , "NextToken" :: Maybe (PaginationToken) } ) -> ListContainersOutput
+newListContainersOutput' _Containers customize = (ListContainersOutput <<< customize) { "Containers": _Containers, "NextToken": Nothing }
 
 
 
@@ -627,7 +626,7 @@ instance encodePaginationToken :: Encode PaginationToken where encode = genericE
 
 -- | <p>Could not perform an operation on a policy that does not exist.</p>
 newtype PolicyNotFoundException = PolicyNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypePolicyNotFoundException :: Newtype PolicyNotFoundException _
 derive instance repGenericPolicyNotFoundException :: Generic PolicyNotFoundException _
@@ -637,12 +636,12 @@ instance encodePolicyNotFoundException :: Encode PolicyNotFoundException where e
 
 -- | Constructs PolicyNotFoundException from required parameters
 newPolicyNotFoundException :: PolicyNotFoundException
-newPolicyNotFoundException  = PolicyNotFoundException { "Message": (NullOrUndefined Nothing) }
+newPolicyNotFoundException  = PolicyNotFoundException { "Message": Nothing }
 
 -- | Constructs PolicyNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPolicyNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> PolicyNotFoundException
-newPolicyNotFoundException'  customize = (PolicyNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newPolicyNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> PolicyNotFoundException
+newPolicyNotFoundException'  customize = (PolicyNotFoundException <<< customize) { "Message": Nothing }
 
 
 

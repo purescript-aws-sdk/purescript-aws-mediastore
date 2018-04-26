@@ -58,7 +58,7 @@ Encode AllowedOrigins
 
 ``` purescript
 newtype Container
-  = Container { "Endpoint" :: NullOrUndefined (Endpoint), "CreationTime" :: NullOrUndefined (TimeStamp), "ARN" :: NullOrUndefined (ContainerARN), "Name" :: NullOrUndefined (ContainerName), "Status" :: NullOrUndefined (ContainerStatus) }
+  = Container { "Endpoint" :: Maybe (Endpoint), "CreationTime" :: Maybe (TimeStamp), "ARN" :: Maybe (ContainerARN), "Name" :: Maybe (ContainerName), "Status" :: Maybe (ContainerStatus) }
 ```
 
 <p>This section describes operations that you can perform on an AWS Elemental MediaStore container.</p>
@@ -83,7 +83,7 @@ Constructs Container from required parameters
 #### `newContainer'`
 
 ``` purescript
-newContainer' :: ({ "Endpoint" :: NullOrUndefined (Endpoint), "CreationTime" :: NullOrUndefined (TimeStamp), "ARN" :: NullOrUndefined (ContainerARN), "Name" :: NullOrUndefined (ContainerName), "Status" :: NullOrUndefined (ContainerStatus) } -> { "Endpoint" :: NullOrUndefined (Endpoint), "CreationTime" :: NullOrUndefined (TimeStamp), "ARN" :: NullOrUndefined (ContainerARN), "Name" :: NullOrUndefined (ContainerName), "Status" :: NullOrUndefined (ContainerStatus) }) -> Container
+newContainer' :: ({ "Endpoint" :: Maybe (Endpoint), "CreationTime" :: Maybe (TimeStamp), "ARN" :: Maybe (ContainerARN), "Name" :: Maybe (ContainerName), "Status" :: Maybe (ContainerStatus) } -> { "Endpoint" :: Maybe (Endpoint), "CreationTime" :: Maybe (TimeStamp), "ARN" :: Maybe (ContainerARN), "Name" :: Maybe (ContainerName), "Status" :: Maybe (ContainerStatus) }) -> Container
 ```
 
 Constructs Container's fields from required parameters
@@ -108,7 +108,7 @@ Encode ContainerARN
 
 ``` purescript
 newtype ContainerInUseException
-  = ContainerInUseException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ContainerInUseException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Resource already exists or is being updated.</p>
@@ -133,7 +133,7 @@ Constructs ContainerInUseException from required parameters
 #### `newContainerInUseException'`
 
 ``` purescript
-newContainerInUseException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ContainerInUseException
+newContainerInUseException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ContainerInUseException
 ```
 
 Constructs ContainerInUseException's fields from required parameters
@@ -190,7 +190,7 @@ Encode ContainerName
 
 ``` purescript
 newtype ContainerNotFoundException
-  = ContainerNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ContainerNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Could not perform an operation on a container that does not exist.</p>
@@ -215,7 +215,7 @@ Constructs ContainerNotFoundException from required parameters
 #### `newContainerNotFoundException'`
 
 ``` purescript
-newContainerNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ContainerNotFoundException
+newContainerNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ContainerNotFoundException
 ```
 
 Constructs ContainerNotFoundException's fields from required parameters
@@ -274,7 +274,7 @@ Encode CorsPolicy
 
 ``` purescript
 newtype CorsPolicyNotFoundException
-  = CorsPolicyNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = CorsPolicyNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Could not perform an operation on a policy that does not exist.</p>
@@ -299,7 +299,7 @@ Constructs CorsPolicyNotFoundException from required parameters
 #### `newCorsPolicyNotFoundException'`
 
 ``` purescript
-newCorsPolicyNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> CorsPolicyNotFoundException
+newCorsPolicyNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> CorsPolicyNotFoundException
 ```
 
 Constructs CorsPolicyNotFoundException's fields from required parameters
@@ -308,7 +308,7 @@ Constructs CorsPolicyNotFoundException's fields from required parameters
 
 ``` purescript
 newtype CorsRule
-  = CorsRule { "AllowedOrigins" :: NullOrUndefined (AllowedOrigins), "AllowedMethods" :: NullOrUndefined (AllowedMethods), "AllowedHeaders" :: NullOrUndefined (AllowedHeaders), "MaxAgeSeconds" :: NullOrUndefined (MaxAgeSeconds), "ExposeHeaders" :: NullOrUndefined (ExposeHeaders) }
+  = CorsRule { "AllowedOrigins" :: Maybe (AllowedOrigins), "AllowedMethods" :: Maybe (AllowedMethods), "AllowedHeaders" :: Maybe (AllowedHeaders), "MaxAgeSeconds" :: Maybe (MaxAgeSeconds), "ExposeHeaders" :: Maybe (ExposeHeaders) }
 ```
 
 <p>A rule for a CORS policy. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.</p>
@@ -333,7 +333,7 @@ Constructs CorsRule from required parameters
 #### `newCorsRule'`
 
 ``` purescript
-newCorsRule' :: ({ "AllowedOrigins" :: NullOrUndefined (AllowedOrigins), "AllowedMethods" :: NullOrUndefined (AllowedMethods), "AllowedHeaders" :: NullOrUndefined (AllowedHeaders), "MaxAgeSeconds" :: NullOrUndefined (MaxAgeSeconds), "ExposeHeaders" :: NullOrUndefined (ExposeHeaders) } -> { "AllowedOrigins" :: NullOrUndefined (AllowedOrigins), "AllowedMethods" :: NullOrUndefined (AllowedMethods), "AllowedHeaders" :: NullOrUndefined (AllowedHeaders), "MaxAgeSeconds" :: NullOrUndefined (MaxAgeSeconds), "ExposeHeaders" :: NullOrUndefined (ExposeHeaders) }) -> CorsRule
+newCorsRule' :: ({ "AllowedOrigins" :: Maybe (AllowedOrigins), "AllowedMethods" :: Maybe (AllowedMethods), "AllowedHeaders" :: Maybe (AllowedHeaders), "MaxAgeSeconds" :: Maybe (MaxAgeSeconds), "ExposeHeaders" :: Maybe (ExposeHeaders) } -> { "AllowedOrigins" :: Maybe (AllowedOrigins), "AllowedMethods" :: Maybe (AllowedMethods), "AllowedHeaders" :: Maybe (AllowedHeaders), "MaxAgeSeconds" :: Maybe (MaxAgeSeconds), "ExposeHeaders" :: Maybe (ExposeHeaders) }) -> CorsRule
 ```
 
 Constructs CorsRule's fields from required parameters
@@ -550,7 +550,7 @@ Encode DeleteCorsPolicyOutput
 
 ``` purescript
 newtype DescribeContainerInput
-  = DescribeContainerInput { "ContainerName" :: NullOrUndefined (ContainerName) }
+  = DescribeContainerInput { "ContainerName" :: Maybe (ContainerName) }
 ```
 
 ##### Instances
@@ -573,7 +573,7 @@ Constructs DescribeContainerInput from required parameters
 #### `newDescribeContainerInput'`
 
 ``` purescript
-newDescribeContainerInput' :: ({ "ContainerName" :: NullOrUndefined (ContainerName) } -> { "ContainerName" :: NullOrUndefined (ContainerName) }) -> DescribeContainerInput
+newDescribeContainerInput' :: ({ "ContainerName" :: Maybe (ContainerName) } -> { "ContainerName" :: Maybe (ContainerName) }) -> DescribeContainerInput
 ```
 
 Constructs DescribeContainerInput's fields from required parameters
@@ -582,7 +582,7 @@ Constructs DescribeContainerInput's fields from required parameters
 
 ``` purescript
 newtype DescribeContainerOutput
-  = DescribeContainerOutput { "Container" :: NullOrUndefined (Container) }
+  = DescribeContainerOutput { "Container" :: Maybe (Container) }
 ```
 
 ##### Instances
@@ -605,7 +605,7 @@ Constructs DescribeContainerOutput from required parameters
 #### `newDescribeContainerOutput'`
 
 ``` purescript
-newDescribeContainerOutput' :: ({ "Container" :: NullOrUndefined (Container) } -> { "Container" :: NullOrUndefined (Container) }) -> DescribeContainerOutput
+newDescribeContainerOutput' :: ({ "Container" :: Maybe (Container) } -> { "Container" :: Maybe (Container) }) -> DescribeContainerOutput
 ```
 
 Constructs DescribeContainerOutput's fields from required parameters
@@ -806,7 +806,7 @@ Encode Header
 
 ``` purescript
 newtype InternalServerError
-  = InternalServerError { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InternalServerError { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The service is temporarily unavailable.</p>
@@ -831,7 +831,7 @@ Constructs InternalServerError from required parameters
 #### `newInternalServerError'`
 
 ``` purescript
-newInternalServerError' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InternalServerError
+newInternalServerError' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InternalServerError
 ```
 
 Constructs InternalServerError's fields from required parameters
@@ -840,7 +840,7 @@ Constructs InternalServerError's fields from required parameters
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = LimitExceededException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>A service limit has been exceeded.</p>
@@ -865,7 +865,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> LimitExceededException
+newLimitExceededException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -874,7 +874,7 @@ Constructs LimitExceededException's fields from required parameters
 
 ``` purescript
 newtype ListContainersInput
-  = ListContainersInput { "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ContainerListLimit) }
+  = ListContainersInput { "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ContainerListLimit) }
 ```
 
 ##### Instances
@@ -897,7 +897,7 @@ Constructs ListContainersInput from required parameters
 #### `newListContainersInput'`
 
 ``` purescript
-newListContainersInput' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ContainerListLimit) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ContainerListLimit) }) -> ListContainersInput
+newListContainersInput' :: ({ "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ContainerListLimit) } -> { "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ContainerListLimit) }) -> ListContainersInput
 ```
 
 Constructs ListContainersInput's fields from required parameters
@@ -906,7 +906,7 @@ Constructs ListContainersInput's fields from required parameters
 
 ``` purescript
 newtype ListContainersOutput
-  = ListContainersOutput { "Containers" :: ContainerList, "NextToken" :: NullOrUndefined (PaginationToken) }
+  = ListContainersOutput { "Containers" :: ContainerList, "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -929,7 +929,7 @@ Constructs ListContainersOutput from required parameters
 #### `newListContainersOutput'`
 
 ``` purescript
-newListContainersOutput' :: ContainerList -> ({ "Containers" :: ContainerList, "NextToken" :: NullOrUndefined (PaginationToken) } -> { "Containers" :: ContainerList, "NextToken" :: NullOrUndefined (PaginationToken) }) -> ListContainersOutput
+newListContainersOutput' :: ContainerList -> ({ "Containers" :: ContainerList, "NextToken" :: Maybe (PaginationToken) } -> { "Containers" :: ContainerList, "NextToken" :: Maybe (PaginationToken) }) -> ListContainersOutput
 ```
 
 Constructs ListContainersOutput's fields from required parameters
@@ -1002,7 +1002,7 @@ Encode PaginationToken
 
 ``` purescript
 newtype PolicyNotFoundException
-  = PolicyNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = PolicyNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Could not perform an operation on a policy that does not exist.</p>
@@ -1027,7 +1027,7 @@ Constructs PolicyNotFoundException from required parameters
 #### `newPolicyNotFoundException'`
 
 ``` purescript
-newPolicyNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> PolicyNotFoundException
+newPolicyNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> PolicyNotFoundException
 ```
 
 Constructs PolicyNotFoundException's fields from required parameters
